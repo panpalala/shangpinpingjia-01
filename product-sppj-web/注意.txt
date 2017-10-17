@@ -1,0 +1,5 @@
+springmvc.xml 的  dubbo的注册中心地址没有填
+
+properties的两个文件都为空
+
+tracker.conf中FastDFS地址必须填
