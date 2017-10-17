@@ -13,5 +13,6 @@
 		<module>product-sppj-provideservice-pojo</module>
 		<module>product-sppj-provide</module>
 		<module>product-sppj-web</module>
+		<module>product-sppj-commons</module>
 	</modules>
 </project>

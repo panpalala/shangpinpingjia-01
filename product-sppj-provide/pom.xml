@@ -17,7 +17,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.webproject</groupId>
-			<artifactId>product-sppj-common</artifactId>
+			<artifactId>product-sppj-commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
