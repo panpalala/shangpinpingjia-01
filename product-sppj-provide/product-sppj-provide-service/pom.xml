@@ -37,7 +37,7 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
-
+		
 		<!-- dubbo相关 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>

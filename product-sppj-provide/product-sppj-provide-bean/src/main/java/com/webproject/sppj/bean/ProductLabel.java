@@ -9,6 +9,8 @@ public class ProductLabel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	private String labelString;
 
 	public ProductLabel() {
 	}
@@ -19,6 +21,14 @@ public class ProductLabel {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getLabelString() {
+		return labelString;
+	}
+
+	public void setLabelString(String labelString) {
+		this.labelString = labelString;
 	}
 
 }

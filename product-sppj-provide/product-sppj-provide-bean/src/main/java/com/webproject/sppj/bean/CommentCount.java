@@ -9,11 +9,11 @@ public class CommentCount {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;// 主键
 	private Integer productId;// 商品id
-	private Integer totalComments;// 全部评价
-	private Integer numOfGoodComments;// 好评
-	private Integer numOfMidComments;// 中评
-	private Integer numOfBadComments;// 差评
-	private Integer numOfHaveImageComments;// 有图的评价
+	private Integer totalComments = 0;// 全部评价
+	private Integer numOfGoodComments = 0;// 好评
+	private Integer numOfMidComments = 0;// 中评
+	private Integer numOfBadComments = 0;// 差评
+	private Integer numOfHaveImageComments = 0;// 有图的评价
 
 	public CommentCount() {
 	}

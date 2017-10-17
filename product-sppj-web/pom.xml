@@ -10,6 +10,13 @@
 	<packaging>war</packaging>
 
 	<dependencies>
+		<!-- 依赖commons -->
+		<dependency>
+			<groupId>com.webproject</groupId>
+			<artifactId>product-sppj-commons</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- 依赖interface -->
 		<dependency>
 			<groupId>com.webproject</groupId>
@@ -26,11 +33,21 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
-
-		<!-- FastDFS -->
+		
+		<!-- JSP相关 -->
 		<dependency>
-			<groupId>com.alibaba.fastdfs</groupId>
-			<artifactId>fastdfs_client</artifactId>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jsp-api</artifactId>
+			<scope>provided</scope>
 		</dependency>
 
 		<!-- dubbo相关 -->
