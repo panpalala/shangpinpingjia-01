@@ -137,4 +137,9 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.selectByExample(example);
 	}
 
+	@Override
+	public List<ProductLabel> getLabels() {
+		return labelMapper.select(null);
+	}
+
 }

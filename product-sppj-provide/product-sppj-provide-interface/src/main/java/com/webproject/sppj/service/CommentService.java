@@ -3,6 +3,7 @@ package com.webproject.sppj.service;
 import java.util.List;
 
 import com.webproject.sppj.bean.ProductComment;
+import com.webproject.sppj.bean.ProductLabel;
 
 public interface CommentService {
 	
@@ -45,5 +46,11 @@ public interface CommentService {
 	 * @return
 	 */
 	public List<ProductComment> queryCommentListByLabel(String labelString);
+	
+	/**
+	 * 获取所有的标签
+	 * @return
+	 */
+	public List<ProductLabel> getLabels();
 	
 }

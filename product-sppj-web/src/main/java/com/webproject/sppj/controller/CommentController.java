@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.webproject.sppj.bean.ProductComment;
 import com.webproject.sppj.service.CommentService;
@@ -20,6 +21,13 @@ public class CommentController {
 	@Autowired
 	private CommentService commentService;
 
+	@RequestMapping(value="", method=RequestMethod.GET)
+	public ModelAndView toAdd(){
+		ModelAndView mv = new ModelAndView("add");
+		mv.addObject("labelList", commentService.getLabels());
+		return mv;
+	}
+	
 	/**
 	 * 分页查询评价
 	 * @param pageNum
