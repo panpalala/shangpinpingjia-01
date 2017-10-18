@@ -4,19 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-
+	<settings>
+		<!-- 启用驼峰式命名 -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
 	<plugins>
 		<!-- 配置PageHelper插件 -->
 		<plugin interceptor="com.github.pagehelper.PageHelper">
 			<!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->
 			<property name="dialect" value="mysql" />
 		</plugin>
-	
+
 		<!-- 配置通用mapper插件 -->
 		<plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
 			<property name="IDENTITY" value="MYSQL" />
 			<property name="mappers" value="com.github.abel533.mapper.Mapper" />
 		</plugin>
 	</plugins>
-	
+
 </configuration>

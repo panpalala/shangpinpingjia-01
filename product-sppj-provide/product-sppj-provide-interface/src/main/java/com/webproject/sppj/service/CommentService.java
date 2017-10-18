@@ -2,6 +2,7 @@ package com.webproject.sppj.service;
 
 import java.util.List;
 
+import com.webproject.sppj.bean.CommentCount;
 import com.webproject.sppj.bean.ProductComment;
 import com.webproject.sppj.bean.ProductLabel;
 
@@ -34,6 +35,12 @@ public interface CommentService {
 	 * @return
 	 */
 	public ProductComment queryComment(Integer id);
+	
+	/**
+	 * 查询商品统计
+	 * @return
+	 */
+	public CommentCount getCount();
 	
 	/**
 	 * 分页查询所有评价

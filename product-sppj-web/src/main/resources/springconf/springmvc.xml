@@ -21,7 +21,7 @@
 	<!-- 配置视图解析器 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="prefix" value="/WEB-INF/product_comments/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 
@@ -34,7 +34,7 @@
 	<!-- 配置dubbo服务 -->
 	<dubbo:application name="project-search" />
 
-	<dubbo:registry protocol="zookeeper" address="xx"></dubbo:registry>
+	<dubbo:registry protocol="zookeeper" address="192.168.27.133:2181"></dubbo:registry>
 
 	<dubbo:protocol name="dubbo" port="20880" />
 

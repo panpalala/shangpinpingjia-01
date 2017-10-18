@@ -15,7 +15,7 @@
 	<!-- 配置dubbo服务 -->
 	<dubbo:application name="project-manager"/>
 	
-	<dubbo:registry protocol="zookeeper" address="xx"></dubbo:registry>
+	<dubbo:registry protocol="zookeeper" address="192.168.27.133:2181"></dubbo:registry>
 	
 	<dubbo:protocol name="dubbo"  port="20880"/>
 	

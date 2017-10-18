@@ -39,25 +39,25 @@
 	</table>
 	<div id="collapseOne" class="panel-collapse collapse ">
 		<div class="panel-body">
-			<form action="#" enctype="multipart/form-data" method="post">
+			<form action="http://productcomments.com/restful/evaluate" enctype="multipart/form-data" method="post">
 				<table class="table">
 					<tr id="scores">
 						<td><label for="exampleInputEmail1">评分:</label></td>
 						<td>
 							<label class="checkbox-inline"> 
-								<input type="checkbox" id="inlineCheckbox1" value="option1"> 1星
+								<input type="radio" name="score" value="1"> 1星
 							</label> 
 							<label class="checkbox-inline"> 
-								<input type="checkbox" id="inlineCheckbox2" value="option2"> 2星
+								<input type="radio" name="score" value="2"> 2星
 							</label> 
 							<label class="checkbox-inline"> 
-								<input type="checkbox" id="inlineCheckbox3" value="option3"> 3星
+								<input type="radio" name="score" value="3"> 3星
 							</label> 
 							<label class="checkbox-inline"> 
-								<input type="checkbox" id="inlineCheckbox4" value="option3"> 4星
+								<input type="radio" name="score" value="4"> 4星
 							</label> 
 							<label class="checkbox-inline"> 
-								<input type="checkbox" id="inlineCheckbox5" value="option3"> 5星
+								<input type="radio" name="score" value="5"> 5星
 							</label>
 						</td>
 					</tr>
@@ -65,21 +65,15 @@
 						<td><label for="exampleInputPassword1">标签:</label></td>
 						<td id="labels">
 							<c:forEach items="${labelList }" var="label">
-				 				<input type="checkbox" id="inlineCheckbox3" value="option3" lid="${label.id }">${label.labelString }
+				 				<input type="checkbox" name="labels" value="${label.id }">${label.labelString }
 							</c:forEach>
-							 <!-- 	使用方便				    		<input type="checkbox" id="inlineCheckbox3" value="option3"> 复印也不错 -->
-							<!-- 							    <input type="checkbox" id="inlineCheckbox3" value="option3"> 复印也不错 -->
-							<!-- 								<input type="checkbox" id="inlineCheckbox3" value="option3"> 机器不错 -->
-							<!-- 								<input type="checkbox" id="inlineCheckbox3" value="option3"> 效果不错 -->
-							<!-- 								<input type="checkbox" id="inlineCheckbox3" value="option3"> 扫描方便 -->
-							<!-- 								<a class="btn btn-default" href="#" role="button">自定义</a> -->
 						</td>
 					</tr>
 					<tr>
 						<td>心得:</td>
 						<td>
 							<div class="form-group">
-								<textarea id="experiences" class="form-control" rows="3"></textarea>
+								<textarea id="experiences" name="experience" class="form-control" rows="3"></textarea>
 							</div>
 						</td>
 					</tr>
@@ -89,16 +83,11 @@
 							<div class="form-group">
 								<label for="exampleInputFile">添加图片</label>
 								 <input type="file" id="exampleInputFile">
-								<p class="help-block">Example block-level help text here.</p>
 							</div>
 						</td>
 					</tr>
-<!-- 					<tr> -->
-<!-- 						<td>验证码</td> -->
-<!-- 						<td><input type="text" /><img src="" />换一张</td> -->
-<!-- 					</tr> -->
 					<tr>
-						<td><button type="submit" class="btn btn-default">评价提交</button></td>
+						<td><button id="subForm" type="submit" class="btn btn-default">评价提交</button></td>
 						<td>同步分享到 <label class="checkbox-inline"> <input
 								type="checkbox" id="inlineCheckbox1" value="option1">
 								新浪微博
@@ -121,24 +110,27 @@
 	</div>
 	
 	<script type="text/javascript">
-		$(function(){
-			//准备提交参数
-			var scores =  $("#scores input:checked").length;
-			var labelIds = "";
-			$("#labels input:checked").each(function(){
-				labelIds = $(this).attr("lid") + ",";
-			});
-			var experiences = $("#experiences").val();
-			//获取图片文件，用formdata包装，发送post请求
-			var imageFile = $("#exampleInputFile").files()[0];
-			var formData = new FormData();
-			formData.append("imageFile", imageFile);
-			$.post("http://productcomments.com/restful/evaluate", 
-					{commentScore:scores,
-					 commentLabelIds:labelIds,
-					 experience:experiences,
-					 image:formData});
-		});
+		/* $(function(){
+			$("#subForm").click(function(){
+				//准备提交参数
+				var scores =  $("#scores input:checked").length;
+				var labelIds = "";
+				$("#labels input:checked").each(function(){
+					labelIds = $(this).attr("lid") + ",";
+				});
+				var experiences = $("#experiences").val();
+				//获取图片文件，用formdata包装，发送post请求
+				var imageFile = $("#exampleInputFile").files()[0];
+				var formData = new FormData();
+				formData.append("imageFile", imageFile);
+				$.post("http://127.0.0.1:8092/restful/evaluate", 
+						{commentScore:scores,
+						 commentLabelIds:labelIds,
+						 experience:experiences,
+						 image:formData});
+				return false;
+			})
+		}); */
 	</script>
 </body>
 

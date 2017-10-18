@@ -80,5 +80,18 @@
 			<artifactId>zkclient</artifactId>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8092</port>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

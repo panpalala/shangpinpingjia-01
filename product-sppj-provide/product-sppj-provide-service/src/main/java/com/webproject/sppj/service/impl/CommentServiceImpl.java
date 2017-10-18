@@ -32,38 +32,42 @@ public class CommentServiceImpl implements CommentService {
 		commentMapper.insertSelective(comment);
 
 		// 根据productId获取CommentCount
-		CommentCount count = new CommentCount();
-		count.setProductId(comment.getProductId());
-		CommentCount tmp = countMapper.selectOne(count);
-
+		
+		Example example = new Example(CommentCount.class);
+		example.createCriteria().andEqualTo("productId", comment.getProductId());
+		CommentCount tmp = countMapper.selectByExample(example).get(0);
+		
 		// 如果数据库中不存在该商品的评价,创建一个数据
 		if (tmp == null) {
 			// bean类中初始化所有参数为0,不需要设置
-			countMapper.insert(count);
+			tmp = new CommentCount();
+			tmp.setProductId(comment.getProductId());
+			countMapper.insertSelective(tmp);
 		}
 
 		if (comment.getImgPath() != null) {
-			count.setNumOfHaveImageComments(count.getNumOfHaveImageComments() + 1);
+			tmp.setNumOfHaveImageComments(tmp.getNumOfHaveImageComments() + 1);
 		}
 
 		// 更新评价
 		Integer score = comment.getScore();
 		switch (score) {
 		case 1:
-			count.setNumOfBadComments(count.getNumOfBadComments() + 1);
+			tmp.setNumOfBadComments(tmp.getNumOfBadComments() + 1);
 			break;
 		case 2:
 		case 3:
-			count.setNumOfMidComments(count.getNumOfMidComments() + 1);
+			tmp.setNumOfMidComments(tmp.getNumOfMidComments() + 1);
 			break;
 		case 4:
 		case 5:
-			count.setNumOfGoodComments(count.getNumOfGoodComments() + 1);
+			tmp.setNumOfGoodComments(tmp.getNumOfGoodComments() + 1);
 			break;
 		}
+		tmp.setTotalComments(tmp.getTotalComments() + 1);
 
 		// 更新商品评价统计表
-		countMapper.updateByPrimaryKey(count);
+		countMapper.updateByPrimaryKey(tmp);
 
 		return true;
 	}
@@ -140,6 +144,11 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public List<ProductLabel> getLabels() {
 		return labelMapper.select(null);
+	}
+
+	@Override
+	public CommentCount getCount() {
+		return countMapper.select(null).get(0);
 	}
 
 }

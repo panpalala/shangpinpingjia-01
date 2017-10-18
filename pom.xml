@@ -10,7 +10,6 @@
 	<artifactId>product-sppj-parent</artifactId>
 	<packaging>pom</packaging>
 	<modules>
-		<module>product-sppj-provideservice-pojo</module>
 		<module>product-sppj-provide</module>
 		<module>product-sppj-web</module>
 		<module>product-sppj-commons</module>
