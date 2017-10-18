@@ -15,7 +15,17 @@
 	<context:component-scan base-package="com.webproject.sppj.controller"></context:component-scan>
 
 	<!-- mvc的默认资源 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- 默认的转换器 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg index="0" value="UTF-8"/>
+			</bean>
+			<!-- 扩展的转换器 -->
+			<bean class="com.webproject.sppj.converter.JsonpConverter"/>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
 	<mvc:default-servlet-handler />
 
 	<!-- 配置视图解析器 -->
