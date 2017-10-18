@@ -17,7 +17,7 @@
 	
 	<dubbo:registry protocol="zookeeper" address="192.168.27.133:2181"></dubbo:registry>
 	
-	<dubbo:protocol name="dubbo"  port="20880"/>
+	<dubbo:protocol name="dubbo"  port="20889"/>
 	
 	<!-- 把代理对象注册到zookeeper中,默认 3秒-->
 	<dubbo:service interface="com.webproject.sppj.service.CommentService" ref="commentServiceImpl" timeout="10000"/>

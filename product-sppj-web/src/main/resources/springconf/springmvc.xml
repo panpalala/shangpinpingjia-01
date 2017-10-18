@@ -36,7 +36,7 @@
 
 	<dubbo:registry protocol="zookeeper" address="192.168.27.133:2181"></dubbo:registry>
 
-	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:protocol name="dubbo" port="20889" />
 
 	<!-- 配置要注册的服务 -->
 	<dubbo:reference interface="com.webproject.sppj.service.CommentService" id="commentService" timeout="10000" />

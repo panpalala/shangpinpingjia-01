@@ -49,7 +49,7 @@ public class CommentController {
 	 * @param pageSize
 	 * @return
 	 */
-	@RequestMapping(value = "showcomments/{pageNum}/{pageSize}", method = RequestMethod.GET)
+	@RequestMapping(value = "showcomments/{productId}/{pageNum}/{pageSize}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> queryCommentList(
 			@PathVariable("pageNum") Integer pageNum,
@@ -100,8 +100,7 @@ public class CommentController {
 	 * @return
 	 */
 	@RequestMapping(value = "evaluate", method = RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity<Void> addComment(
+	public String addComment(
 			@RequestParam("score") Integer score,
 			@RequestParam("labels") String[] labels,
 			@RequestParam("experience") String experience, MultipartFile file,
@@ -149,18 +148,12 @@ public class CommentController {
 			}
 
 			// 添加评价
-			boolean addComment = commentService.addComment(comment);
-			if (addComment) {
-				return ResponseEntity.status(HttpStatus.CREATED).build();
-			} else {
-				return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-			}
+			commentService.addComment(comment);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-				null);
+		return "redirect:http://product.atguigu.com/"+comment.getProductId()+".html";
 	}
 
 	/**
