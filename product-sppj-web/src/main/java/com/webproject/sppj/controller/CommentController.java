@@ -49,7 +49,7 @@ public class CommentController {
 	 * @param pageSize
 	 * @return
 	 */
-	@RequestMapping(value = "showcomments/{productId}/{pageNum}/{pageSize}", method = RequestMethod.GET)
+	@RequestMapping(value = "showcomments/{pageNum}/{pageSize}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> queryCommentList(
 			@PathVariable("pageNum") Integer pageNum,
